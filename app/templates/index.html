@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block body%}
+<link href="{{ url_for('static', filename='app.css') }}" />
+
+<h1>Unlabeled Images</h1>
+<div id="images">
+{% for i in range(6) %}
+    {% for j in range(6) %}
+        <a href="/replaceimage/{{i*6+j}}">
+            <img src="/static/array/{{i*6+j}}.jpg" width=100 height=100/>
+        </a>
+    {% endfor %}
+    <br/>
+{% endfor %}
+</div>
+<div id='classes'><p>Classes</p>
+    <p>there are {{classes}} Classes</p>
+
+    <input id='name' width=100></br> </textbox><button id='button1'>Add Class</button>
+</div>
+
+{% endblock %}

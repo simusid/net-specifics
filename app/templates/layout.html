@@ -1,0 +1,22 @@
+<!doctype html>
+<head>
+     <title>Net Specifics</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src={{url_for('static', filename='app.js')}}></script>
+</head>
+
+<body>
+ {% with messages = get_flashed_messages() %}
+   {% if messages %}
+     <ul class="flashes">
+        {% for message in messages %}
+         <div class="message_flash">{{ message }}</div>
+        {% endfor %}
+    </ul>
+  {% endif %}
+ {% endwith %}
+ 
+{% block body %}
+{% endblock %}
+</body>
