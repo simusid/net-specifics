@@ -3,10 +3,11 @@
 <link href="{{ url_for('static', filename='app.css') }}" />
 
 <h1>Unlabeled Images</h1>
+
 <div id="images">
 {% for i in range(6) %}
     {% for j in range(6) %}
-        <a href="/replaceimage/{{i*6+j}}">
+        <a id='img_{{i*6+j}}' href="/replaceimage/{{i*6+j}}">
             <img src="/static/array/{{i*6+j}}.jpg" width=100 height=100/>
         </a>
     {% endfor %}
@@ -14,9 +15,16 @@
 {% endfor %}
 </div>
 <div id='classes'><p>Classes</p>
-    <p>there are {{classes}} Classes</p>
 
     <input id='name' width=100></br> </textbox><button id='button1'>Add Class</button>
+    <button id="button2">Reset</button>
+    {% for c in classes %}
+        <br/>
+        class id {{c[0]}}<br/>
+        
+        <img src="{{url_for('static', filename=c[1]) }}" width=100 height=100/><br/>
+        count is {{c[2]}}<br/>
+    {% endfor %}
 </div>
 
 {% endblock %}
